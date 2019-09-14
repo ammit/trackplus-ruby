@@ -1,0 +1,15 @@
+{
+"status": 200,
+"success": true,
+"data": [
+"airwings",
+"aramex",
+"bluedart",
+"delhivery",
+"dhl",
+"franch",
+"tpc",
+"fedex",
+"ups"
+]
+}
