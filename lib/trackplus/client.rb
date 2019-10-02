@@ -91,7 +91,7 @@ module Trackplus
 
     # build the url to api
     def api_url
-      @_api_url ||= format('http://167.71.238.124/api/v%s', Trackplus::API_VERSION)
+      @_api_url ||= format('http://trackplus.io/api/v%s', Trackplus::API_VERSION)
     end
 
     def configuration_error(message)
