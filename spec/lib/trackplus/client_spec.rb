@@ -18,7 +18,7 @@ describe Trackplus::Client do
 
   describe '#trackings' do
     it 'returns tracking details' do
-      stub_request(:get, 'http://167.71.238.124/api/v1/trackings/airwings/202315836553')
+      stub_request(:get, 'http://trackplus.io/api/v1/trackings/airwings/202315836553')
         .to_return(status: 200, body: trackings_json_fixture)
       expect(client.tracking(courier: 'airwings', tracking_no: '202315836553')).to be_kind_of(Hash)
       expect(client.tracking(courier: 'airwings', tracking_no: '202315836553')['checkpoints']).to be_kind_of(Array)
@@ -38,7 +38,7 @@ describe Trackplus::Client do
     end
 
     it 'timout error handling' do
-      stub_request(:get, 'http://167.71.238.124/api/v1/trackings/airwings/202315836553')
+      stub_request(:get, 'http://trackplus.io/api/v1/trackings/airwings/202315836553')
         .to_timeout
       expect{client.tracking(courier: 'airwings', tracking_no: '202315836553')}.to raise_error(Trackplus::Errors::MaxRetriesExceeded)
     end
@@ -46,7 +46,7 @@ describe Trackplus::Client do
 
   describe '#couriers' do
     it 'returns available couriers details' do
-      stub_request(:get, 'http://167.71.238.124/api/v1/couriers')
+      stub_request(:get, 'http://trackplus.io/api/v1/couriers')
         .to_return(status: 200, body: couriers_json_fixture)
 
       expect(client.couriers).to be_kind_of(Array)
